@@ -22,6 +22,7 @@ import com.github.kwhat.jnativehook.mouse.NativeMouseEvent;
 public class ClickCharacterApp {
     private static final Preferences prefs =
             Preferences.userRoot().node(ClickCharacterApp.class.getName());
+    private static final String CLICK_KEY = "clickCount";
 
     static class PixelLabel extends JLabel {
         PixelLabel(String text) {
@@ -62,6 +63,7 @@ public class ClickCharacterApp {
     private static Timer slowDownTimer;
 
     public static void main(String[] args) {
+        clickCount = prefs.getInt(CLICK_KEY, 0);
         SwingUtilities.invokeLater(() -> createAndShowGUI());
         setupGlobalListeners();
     }
@@ -99,7 +101,8 @@ public class ClickCharacterApp {
         counterPanel.setLayout(new BorderLayout());
         counterPanel.setOpaque(true);
 
-        counterLabel = new PixelLabel("0");
+        counterLabel = new PixelLabel("");
+        counterLabel.setText(String.valueOf(clickCount));
         counterLabel.setBorder(new EmptyBorder(0,8,0,0));
 
         counterPanel.add(counterLabel);
@@ -247,10 +250,10 @@ public class ClickCharacterApp {
 
     private static void handleGlobalClick() {
         clickCount++;
+        prefs.putInt(CLICK_KEY, clickCount);
 
         SwingUtilities.invokeLater(() -> {
-            if (clickCount > 0) counterLabel.setText(String.valueOf(clickCount));
-            else counterLabel.setText(String.valueOf(clickCount));
+            counterLabel.setText(String.valueOf(clickCount));
 
             walkDelay = Math.max(MIN_WALK_DELAY, walkDelay - DELAY_STEP);
             ensureAnimationLoop(walkFrames, true, walkDelay);
