@@ -8,7 +8,7 @@ import java.util.prefs.Preferences;
  * Manages skin state, click tracking, unlock progress, and persistence.
  */
 public class SkinManager {
-    private static final Preferences prefs = Preferences.userRoot().node(ClickCharacterApp.class.getName());
+    private static final Preferences prefs = Preferences.userRoot().node(ShroomCompanion.class.getName());
 
     private static final String
             CLICK_KEY = "clickCount",

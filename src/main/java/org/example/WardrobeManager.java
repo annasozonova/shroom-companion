@@ -19,7 +19,7 @@ public class WardrobeManager {
      */
     public static JButton createWardrobeButton(JFrame frame) {
         JButton wardrobeButton = new JButton();
-        URL iconURL = ClickCharacterApp.class.getResource("/hanger.png");
+        URL iconURL = ShroomCompanion.class.getResource("/hanger.png");
         ImageIcon wardrobeIconRaw = new ImageIcon(iconURL);
         Image wardrobeIcon = wardrobeIconRaw.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
         wardrobeButton.setIcon(new ImageIcon(wardrobeIcon));
@@ -92,7 +92,7 @@ public class WardrobeManager {
      */
     public static void addColorToWardrobe(String color) {
         String filename = "mini_" + color + ".png";
-        URL miniIconURL = ClickCharacterApp.class.getClassLoader().getResource(filename);
+        URL miniIconURL = ShroomCompanion.class.getClassLoader().getResource(filename);
         if (miniIconURL == null) {
             System.out.println("Icon for mini not found: " + filename);
             return;
@@ -106,7 +106,7 @@ public class WardrobeManager {
         colorBtn.setBorderPainted(false);
         colorBtn.addActionListener(e -> {
             SkinManager.setSelectedColor(color);
-            AnimationManager.setCurrentFrames(ClickCharacterApp.getIdleSprites().get(color));
+            AnimationManager.setCurrentFrames(ShroomCompanion.getIdleSprites().get(color));
             AnimationManager.playIdle();
         });
 

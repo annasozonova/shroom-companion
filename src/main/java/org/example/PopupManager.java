@@ -20,7 +20,7 @@ public class PopupManager {
         textLabel.setBorder(BorderFactory.createEmptyBorder(4, 10, 4, 6));
 
         JLabel iconLabel = new JLabel();
-        URL iconURL = ClickCharacterApp.class.getClassLoader().getResource("mini_" + color + ".png");
+        URL iconURL = ShroomCompanion.class.getClassLoader().getResource("mini_" + color + ".png");
         if (iconURL != null) {
             ImageIcon raw = new ImageIcon(iconURL);
             Image scaled = raw.getImage().getScaledInstance(24, 19, Image.SCALE_SMOOTH);

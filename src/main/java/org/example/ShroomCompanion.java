@@ -25,7 +25,7 @@ import com.github.kwhat.jnativehook.mouse.NativeMouseEvent;
  * Main class of the application.
  * Handles initialization, UI setup, global input listeners, and main animation logic.
  */
-public class ClickCharacterApp {
+public class ShroomCompanion {
     private static final Map<String, List<ImageIcon>> idleSprites = new HashMap<>();
     private static final Map<String, List<ImageIcon>> walkSprites = new HashMap<>();
 
@@ -259,7 +259,7 @@ public class ClickCharacterApp {
      */
     private static List<ImageIcon> loadSpriteStrip(String fileName, int frameCount, int scaleWidth) {
         List<ImageIcon> frames = new ArrayList<>();
-        URL resource = ClickCharacterApp.class.getClassLoader().getResource(fileName);
+        URL resource = ShroomCompanion.class.getClassLoader().getResource(fileName);
         if (resource == null) {
             throw new IllegalArgumentException("File not found: " + fileName);
         }
@@ -306,7 +306,7 @@ public class ClickCharacterApp {
             for (int i = SkinManager.getClickCount(); i < 1000; i++) {
                 SkinManager.incrementClickCount();
             }
-            Preferences prefs = Preferences.userRoot().node(ClickCharacterApp.class.getName());
+            Preferences prefs = Preferences.userRoot().node(ShroomCompanion.class.getName());
             prefs.putLong("lastUnlockTime", System.currentTimeMillis() - 999_999);
 
             if (SkinManager.tryUnlockNewSkin()) {

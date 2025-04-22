@@ -57,7 +57,7 @@ public class AnimationManager {
             delayResetTimer.stop();
 
         delayResetTimer = new Timer(300, e -> {
-            List<ImageIcon> idleFrames = ClickCharacterApp.getIdleSprites().get(SkinManager.getSelectedColor());
+            List<ImageIcon> idleFrames = ShroomCompanion.getIdleSprites().get(SkinManager.getSelectedColor());
             setCurrentFrames(idleFrames);
             ensureAnimationLoop(idleFrames, true, idleDelay = walkDelay);
 
