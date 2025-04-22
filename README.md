@@ -2,8 +2,6 @@
 
 Shroom companion is a lightweight Java desktop application featuring an animated pixel-art mushroom that reacts to user activity. It tracks mouse clicks and keyboard presses, unlocking new skins based on user engagement.
 
-The project was inspired by the behavior and interactivity of the [Bongo Cat](https://store.steampowered.com/app/3419430/Bongo_Cat/) desktop application available on Steam.
-
 ## Features
 
 - Animated mushroom character reacting to user input
@@ -61,5 +59,14 @@ LICENSE                                          # License information
 
 This application is distributed as a standalone `.exe` using [Launch4j](http://launch4j.sourceforge.net/), which wraps the executable around the compiled JAR file. Optionally, the executable can include a bundled Java Runtime Environment (JRE) to ensure consistent behavior across systems without requiring Java to be installed separately.
 
+## Inspiration
+
+The project was inspired by the behavior and interactivity of the [Bongo Cat](https://store.steampowered.com/app/3419430/Bongo_Cat/) desktop application available on Steam.
+
+## Assets Attribution
+
+The base mushroom sprite used in this project was created by [CAZ Creates Games](https://caz-creates-games.itch.io/) and is used under the license provided on their itch.io page.
+
+All modifications and animation extensions were done specifically for this project.
 
 
